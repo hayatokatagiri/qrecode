@@ -65,7 +65,7 @@ q_rev <- function(old,DK = F){
 }
 
 #データフレームの列q1の複数の選択肢a,b,cを自動的にq1_a,q1_b,q1_cのダミー変数にする関数
-#分割の初期設定は,、これは指定可能
+#分割の初期設定は「,」、これは指定可能
 ma2sa <- function(df, column_name, prefix, delimiter = ",") {
   # Check if tidyverse is available and load it if not
   if (!requireNamespace("tidyverse", quietly = TRUE)) {
