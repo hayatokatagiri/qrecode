@@ -83,6 +83,10 @@ ma2sa <- function(df, column_name, prefix, delimiter = ",") {
   df_add <- data.frame(do.call(rbind, MA_dummy))
 
   df_add <- rename_all(df_add, function(x) glue::glue("{prefix}_{x}"))
+
+  # Convert NA values in original column to NA in the resulting dummy variables
+  df_add <- as.data.frame(lapply(df_add, function(x) ifelse(df[[column_name]] == "", NA, x)))
+
   df <- cbind(df, df_add)
 
   return(df)
