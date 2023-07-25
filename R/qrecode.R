@@ -63,3 +63,27 @@ q_rev <- function(old,DK = F){
   print(table(new))
   return(new)
 }
+
+#データフレームの列q1の複数の選択肢a,b,cを自動的にq1_a,q1_b,q1_cのダミー変数にする関数
+#分割の初期設定は,、これは指定可能
+ma2sa <- function(df, column_name, prefix, delimiter = ",") {
+  # Check if tidyverse is available and load it if not
+  if (!requireNamespace("tidyverse", quietly = TRUE)) {
+    install.packages("tidyverse")
+    library(tidyverse)
+  }
+
+  df$MA <- as.character(df[[column_name]])
+  df$MA <- gsub("[[:blank:]]", "", df$MA) # Remove spaces
+
+  MA_split <- strsplit(df$MA, delimiter) # Split by the specified delimiter
+
+  lev <- unique(unlist(MA_split))
+  MA_dummy <- lapply(MA_split, function(x) table(factor(x, levels = lev)))
+  df_add <- data.frame(do.call(rbind, MA_dummy))
+
+  df_add <- rename_all(df_add, function(x) glue::glue("{prefix}_{x}"))
+  df <- cbind(df, df_add)
+
+  return(df)
+}
