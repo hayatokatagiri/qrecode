@@ -38,11 +38,14 @@ q_rev(old, DK = FALSE)
 
 #### 例
 ```r
-# 5段階リッカート尺度のデータ
+# 5段階尺度のデータ
 satisfaction <- c(1, 2, 3, 4, 5, 2, 1, 4)
 
 # 逆転項目の作成（5→1, 4→2, 3→3, 2→4, 1→5）
 satisfaction_rev <- q_rev(satisfaction)
+
+# データフレームでの使用例（5段階尺度のQ15を逆転）
+df$happiness <- q_rev(df$Q15)
 
 # 「わからない」（例：88888）を除外した逆転項目
 satisfaction_with_dk <- c(1, 2, 3, 4, 5, 88888, 2, 1)
