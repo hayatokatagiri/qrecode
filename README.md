@@ -15,10 +15,8 @@
 
 ```r
 # 開発版をGitHubからインストール
-# devtools::install_github("username/qrecode")  # 実際のGitHubリポジトリに置き換えてください
-
-# ローカルでのインストール
-# install.packages("path/to/qrecode", repos = NULL, type = "source")
+#remotes::install_github("hayatokatagiri/qrecode")
+library(qrecode)
 ```
 
 ## 関数一覧
