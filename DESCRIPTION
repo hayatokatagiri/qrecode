@@ -1,15 +1,10 @@
 Package: qrecode
 Type: Package
 Title: Recoding Survey Questionnaire Data
-Version: 0.0.3
+Version: 0.0.2
 Author: Hayato KATAGIRI
 Maintainer: Hayato KATAGIRI <katagiri.socio@gmail.com>
 Description: This package assists recording questionnaire survey data.
 License: License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-    knitr,
-    stats,
-    graphics,
-    grDevices

@@ -91,4 +91,3 @@ ma2sa <- function(df, column_name, prefix, delimiter = ",") {
 
   return(df)
 }
-
